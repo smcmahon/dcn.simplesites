@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<layers>
+    <layer name="dcn.simplesites.customization.layer"
+      interface="dcn.simplesites.interfaces.IMyBrowserLayer" />
+</layers>

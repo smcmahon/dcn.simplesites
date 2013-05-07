@@ -1,0 +1,37 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:zcml="http://namespaces.zope.org/zcml">
+
+    <include package="Products.CMFCore" file="permissions.zcml"/>
+
+    <!-- Render the document social links -->
+    <browser:viewlet
+        name="plone.belowcontenttitle.keywords"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContent"
+        template="social.pt"
+        permission="zope2.View"
+        layer="dcn.simplesites.interfaces.IMyBrowserLayer"
+        />
+
+    <!-- Footer -->
+    <browser:viewlet
+        name="plone.footer"
+        for="*"
+        manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+        template="footer.pt"
+        permission="zope.Public"
+        layer="dcn.simplesites.interfaces.IMyBrowserLayer"
+        />
+
+    <!-- Colophon -->
+    <browser:viewlet
+        name="plone.colophon"
+        for="*"
+        manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+        template="colophon.pt"
+        permission="zope.Public"
+        layer="dcn.simplesites.interfaces.IMyBrowserLayer"
+        />
+
+</configure>

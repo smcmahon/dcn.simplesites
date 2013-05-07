@@ -1,0 +1,154 @@
+<?xml version="1.0" ?>
+<model xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns:security="http://namespaces.plone.org/supermodel/security" xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns="http://namespaces.plone.org/supermodel/schema">
+  <schema>
+    <field name="text" type="plone.app.textfield.RichText">
+      <description/>
+      <required>False</required>
+      <title>Body Text</title>
+    </field>
+    <field name="homepage_news" type="zope.schema.Bool" form:widget="z3c.form.browser.radio.RadioFieldWidget">
+      <default>False</default>
+      <description>When turned on, your site's most recently published news items will show up on the homepage, immediately following the body text. Congratulations! You now have a Blog.</description>
+      <title>Show news on homepage?</title>
+    </field>
+    <fieldset name="admin" label="Admin" description="Administrative Settings">
+      <field name="public_contact" type="zope.schema.TextLine">
+        <description>Submissions to the contact-info form will be sent here.</description>
+        <title>Public E-Mail Contact</title>
+      </field>
+      <field name="admin_e_mail_contact" type="zope.schema.TextLine">
+        <description>Contact information, including email, for a person responsible for this site. This information is not part of the site web pages, but will be used by the host administrator if there are questions about the site. Please Note: if this information is missing, or if mail to this address is not answered promptly, your site may be deleted without notice. </description>
+        <title>Admin E-Mail Contact</title>
+      </field>
+      <field name="license" type="zope.schema.Choice">
+        <description>Choose a Creative Commons license to allow republication of your content. If you don't wish to use a Creative Commons License, you may wish to add a copyright notice to your footer.</description>
+        <title>License</title>
+        <values>
+          <element>None</element>
+          <element>Creative Commons Attribution</element>
+          <element>Creative Commons Attribution-ShareAlike</element>
+          <element>Creative Commons Attribution-NonCommercial</element>
+          <element>Creative Commons Attribution-NonCommercial-ShareAlike</element>
+        </values>
+      </field>
+      <field name="credit_dcn" type="zope.schema.Bool" form:widget="z3c.form.browser.radio.RadioFieldWidget">
+        <default>True</default>
+        <description>Should we show a message at page bottom crediting DCN for site assistance?</description>
+        <title>Credit DCN?</title>
+      </field>
+      <field name="do_list" type="zope.schema.Bool" form:widget="z3c.form.browser.radio.RadioFieldWidget">
+        <default>False</default>
+        <description>Should this site be included in DCN's public listing of sites? (This is set to "no" when a site is first created. Change to "yes" when you're ready to go public.)</description>
+        <title>Include in sites listing?</title>
+      </field>
+      <field name="preferred_url" type="zope.schema.TextLine">
+        <description>If you wish to have your site in the public listing and you are using a domain/host name other than groups.dcn.org, enter your preferred URL here. The URL must be a valid web address, including "http://". </description>
+        <required>False</required>
+        <title>Preferred web address</title>
+      </field>
+      <field name="analytics_code" type="zope.schema.Text">
+        <default>&lt;script&gt;
+
+&lt;/script&gt;</default>
+        <description>Add here any code you need inserted at the bottom of the HTML body. Typical use is JavaScript for analytics' tracking. </description>
+        <required>False</required>
+        <title>Analytics Code</title>
+      </field>
+    </fieldset>
+    <fieldset name="style" label="Style &amp; Layout" description="Color and layout settings">
+      <field name="page_structure" type="zope.schema.Choice">
+        <default>Flexible Layout</default>
+        <description>"Flexible Layout" is more modern and offers good Mobile displays. "Fixed Layout" is more compatible with older sites.</description>
+        <title>Page Structure</title>
+        <values>
+          <element>Fixed Layout</element>
+          <element>Flexible Layout</element>
+        </values>
+      </field>
+      <field name="page_banner_image" type="plone.namedfile.field.NamedBlobFile">
+        <description>An optional graphic that will be displayed at the top of each page in place of a text title. Make sure to use a web-standard file format (JPG, JPEG, PNG or GIF) for the image upload.</description>
+        <required>False</required>
+        <title>Page Banner Image</title>
+      </field>
+      <field name="page_footer" type="plone.app.textfield.RichText">
+        <description>This text will display at the bottom of all your pages. Most commonly used for name, address, contact info.</description>
+        <required>False</required>
+        <title>Page Footer</title>
+      </field>
+      <field name="page_background_color" type="zope.schema.TextLine">
+        <default>white</default>
+        <description>Overall background color for the page. You may specify a CSS color name or hex value.</description>
+        <title>Page Background Color</title>
+      </field>
+      <field name="contrast_background_color" type="zope.schema.TextLine">
+        <default>LightGray</default>
+        <description>Background color for boxed elements like column headers.</description>
+        <title>Contrast Background Color</title>
+      </field>
+      <field name="border_color" type="zope.schema.TextLine">
+        <default>SteelBlue</default>
+        <description>Border color for boxed elements like column headers.</description>
+        <title>Border Color</title>
+      </field>
+      <field name="alternate_background_color" type="zope.schema.TextLine">
+        <default>WhiteSmoke</default>
+        <description>This color will be used as the background color in alternate table rows. A slightly different shade of the Page Background Color is a good choice.</description>
+        <title>Alternate Row Shading</title>
+      </field>
+      <field name="custom_css" type="zope.schema.Text">
+        <default>/* Set body and headline text color */
+h1, h2, h3, h4, h5, body {
+  color: #303;
+}
+        </default>
+        <description>Cascading Style Sheet style-tag definitions. Whatever you specify will override the Simple Sites default style sheet. Please note: you do not need to include the style tags. They are supplied for you.</description>
+        <required>False</required>
+        <title>Custom CSS</title>
+      </field>
+    </fieldset>
+    <fieldset name="elements" label="Page Elements" description="Turn on and off elements of your pages.">
+      <field name="show_search" type="zope.schema.Bool" form:widget="z3c.form.browser.radio.RadioFieldWidget">
+        <default>True</default>
+        <description>When turned on, a site search form will show up in the upper-right corner of every page. If you don't have many pages in your site, this really isn't useful.</description>
+        <title>Show site search?</title>
+      </field>
+      <field name="show_nav" type="zope.schema.Bool" form:widget="z3c.form.browser.radio.RadioFieldWidget">
+        <default>True</default>
+        <description>When turned on, a navigation tabs will be displayed in a horizontal bar in the top-of-page banner. If it isn't helpful, turn it off.</description>
+        <title>Show navigation tabs?</title>
+      </field>
+      <field name="show_breadcrumbs" type="zope.schema.Bool" form:widget="z3c.form.browser.radio.RadioFieldWidget">
+        <default>True</default>
+        <description>When turned on, a "you are here" line will appear under the tab area. This is a navigational device that can help orient users who find themselves deep in a site folder hierarchy. You may wish to turn off breadcrumb display if your site is very shallow (in form, not substance). </description>
+        <title>Show breadcrumbs?</title>
+      </field>
+      <field name="show_login" type="zope.schema.Bool" form:widget="z3c.form.browser.radio.RadioFieldWidget">
+        <default>True</default>
+        <description>When turned on, a "log in" link will appear in the shaded horizontal bar under the banner when the current viewer is not logged in. This is convenient when you're getting started, but may later invite confusion from viewers who may suppose your site has a members-only component. Note that you may always reach a log-in form by just adding "/edit" to the URL of your web site. </description>
+        <title>Show log-in link?</title>
+      </field>
+      <field name="show_lastmod" type="zope.schema.Bool" form:widget="z3c.form.browser.radio.RadioFieldWidget">
+        <default>True</default>
+        <description>When turned on, the date/time the page was last modified will show after the page headline. This will help visitors judge the page's currency.</description>
+        <title>Show last modified date?</title>
+      </field>
+    </fieldset>
+    <fieldset name="social" label="Social" description="Set up social media connections.">
+      <field name="facebook_page_id" type="zope.schema.TextLine">
+        <description>Specify a complete Facebook page URL to use Facebook connection features.</description>
+        <required>False</required>
+        <title>Facebook page address</title>
+      </field>
+      <field name="twitter_id" type="zope.schema.TextLine">
+        <description>Specify a Twitter ID if you wish to offer "follow" links.</description>
+        <required>False</required>
+        <title>Twitter User ID</title>
+      </field>
+      <field name="enable_tweet" type="zope.schema.Bool" form:widget="z3c.form.browser.radio.RadioFieldWidget">
+        <default>False</default>
+        <description>Do you want to offer a "Tweet this page" button.</description>
+        <title>Enable "Tweet this?"</title>
+      </field>
+    </fieldset>
+  </schema>
+</model>
