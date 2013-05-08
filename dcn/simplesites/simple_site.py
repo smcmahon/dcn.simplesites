@@ -9,22 +9,6 @@ from Products.CMFCore.utils import getToolByName
 
 from plone.namedfile.interfaces import IImageScaleTraversable
 
-# from zope import schema
-# from zope.schema.interfaces import IContextSourceBinder
-# from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
-
-# from zope.interface import invariant, Invalid
-
-# from z3c.form import group, field
-
-# from plone.namedfile.field import NamedImage, NamedFile
-# from plone.namedfile.field import NamedBlobImage, NamedBlobFile
-
-# from plone.app.textfield import RichText
-
-# from z3c.relationfield.schema import RelationList, RelationChoice
-# from plone.formwidget.contenttree import ObjPathSourceBinder
-
 # from dcn.simplesites import MessageFactory as _
 
 
@@ -50,8 +34,10 @@ class View(grok.View):
         super(View, self).__init__(context, request)
         self.count = 5
         self.state = 'published'
-        context = aq_inner(self.context)
-        self.portal_state = getMultiAdapter((context, self.request), name='plone_portal_state')
+        self.portal_state = getMultiAdapter(
+            (aq_inner(self.context), self.request),
+            name='plone_portal_state'
+            )
 
     def all_news_link(self):
         context = aq_inner(self.context)

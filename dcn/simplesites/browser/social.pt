@@ -1,0 +1,12 @@
+<div id="social"
+  tal:define="site context/@@ssiteroot">
+    <p>
+       SOCIAL
+
+    </p>
+
+<pre tal:content="site/enable_tweet" />
+
+<pre tal:content="site/public_contact" />
+
+</div>

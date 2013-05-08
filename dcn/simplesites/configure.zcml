@@ -14,7 +14,7 @@
   <!-- Grok the package to initialise schema interfaces and content classes -->
   <grok:grok package="." />
 
-  <include package=".viewlets" />
+  <include package=".browser" />
 
   <!-- Register a resource directory from which we can deploy static
    resource files. -->

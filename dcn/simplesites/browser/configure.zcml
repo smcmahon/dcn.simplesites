@@ -5,6 +5,14 @@
 
     <include package="Products.CMFCore" file="permissions.zcml"/>
 
+    <browser:page
+        for="*"
+        name="ssiteroot"
+        permission="zope2.Public"
+        class=".siteroot.SiteRootView"
+        layer="dcn.simplesites.interfaces.IMyBrowserLayer"
+        />
+
     <!-- Render the document social links -->
     <browser:viewlet
         name="plone.belowcontenttitle.keywords"
@@ -31,6 +39,14 @@
         manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
         template="colophon.pt"
         permission="zope.Public"
+        layer="dcn.simplesites.interfaces.IMyBrowserLayer"
+        />
+
+    <browser:viewlet
+        name="plone.analytics"
+        manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+        class=".analytics.AnalyticsViewlet"
+        permission="zope2.View"
         layer="dcn.simplesites.interfaces.IMyBrowserLayer"
         />
 

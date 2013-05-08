@@ -30,6 +30,7 @@
           <element>Creative Commons Attribution-NonCommercial</element>
           <element>Creative Commons Attribution-NonCommercial-ShareAlike</element>
         </values>
+        <default>Creative Commons Attribution</default>
       </field>
       <field name="credit_dcn" type="zope.schema.Bool" form:widget="z3c.form.browser.radio.RadioFieldWidget">
         <default>True</default>
@@ -65,7 +66,7 @@
           <element>Flexible Layout</element>
         </values>
       </field>
-      <field name="page_banner_image" type="plone.namedfile.field.NamedBlobFile">
+      <field name="page_banner_image" type="plone.namedfile.field.NamedBlobImage">
         <description>An optional graphic that will be displayed at the top of each page in place of a text title. Make sure to use a web-standard file format (JPG, JPEG, PNG or GIF) for the image upload.</description>
         <required>False</required>
         <title>Page Banner Image</title>

@@ -1,0 +1,8 @@
+<div id="portal-colophon" tal:define="site context/@@ssiteroot">
+<div class="colophonWrapper">
+    COLOPHON
+    <div tal:condition="site/credit_dcn">
+        Credit DCN
+    </div>
+</div>
+</div>

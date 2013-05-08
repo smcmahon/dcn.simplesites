@@ -1,0 +1,14 @@
+<div id="portal-footer"
+    tal:define="site context/@@ssiteroot; license site/license">
+
+    <p tal:condition="site/in_simple_site" tal:replace="structure site/page_footer">
+        FOOTER
+    </p>
+    <p tal:condition="not:site/in_simple_site">
+        FOOTER
+    </p>
+    <div tal:condition="license" tal:content="license">
+     License
+    </div>
+
+</div>
