@@ -34,6 +34,17 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
-  <!-- -*- extra stuff goes here -*- -->
+  <subscriber
+    for="dcn.simplesites.simple_site.ISimpleSite
+         zope.app.publication.interfaces.IBeforeTraverseEvent"
+    handler=".subscribers.applyTheme"
+    />
+
+  <subscriber
+    for="dcn.simplesites.simple_site.ISimpleSite
+         zope.lifecycleevent.IObjectCreatedEvent"
+    handler="dcn.simplesites.subscribers.siteModified"
+    />
+
 
 </configure>
