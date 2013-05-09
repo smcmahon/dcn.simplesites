@@ -19,11 +19,11 @@ class SiteRootView(BrowserView):
         self.portal_state = getMultiAdapter(
             (aq_inner(self.context), self.request),
             name='plone_portal_state'
-            )
+        )
         self.nav_root = getNavigationRootObject(
             context,
             self.portal_state.portal()
-            )
+        )
         self.is_simple_site = ISimpleSite.providedBy(self.nav_root)
 
     def in_simple_site(self):
@@ -54,4 +54,5 @@ class SiteRootView(BrowserView):
         else:
             return u''
 
-
+    def dbOrgId(self):
+        return getattr(self.nav_root, 'dbOrgId', 0)

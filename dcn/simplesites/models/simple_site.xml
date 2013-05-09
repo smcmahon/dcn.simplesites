@@ -55,6 +55,16 @@
         <required>False</required>
         <title>Analytics Code</title>
       </field>
+      <field
+        name="dbOrgId"
+        type="zope.schema.Int"
+        security:read-permission="zope2.View"
+        security:write-permission="cmf.ManagePortal"
+        >
+        <description>For system manager use only.</description>
+        <title>Calendar Database ID</title>
+        <default>0</default>
+      </field>
     </fieldset>
     <fieldset name="style" label="Style &amp; Layout" description="Color and layout settings">
       <field name="page_structure" type="zope.schema.Choice">
