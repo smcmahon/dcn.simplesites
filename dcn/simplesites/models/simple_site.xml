@@ -150,6 +150,11 @@ h1, h2, h3, h4, h5, body {
         <required>False</required>
         <title>Facebook page address</title>
       </field>
+      <field name="enable_fblike" type="zope.schema.Bool" form:widget="z3c.form.browser.radio.RadioFieldWidget">
+        <default>False</default>
+        <description>Do you want to offer a Facebook "Like this page" button on each page?</description>
+        <title>Enable "Like this?"</title>
+      </field>
       <field name="twitter_id" type="zope.schema.TextLine">
         <description>Specify a Twitter ID if you wish to offer "follow" links.</description>
         <required>False</required>
@@ -157,7 +162,7 @@ h1, h2, h3, h4, h5, body {
       </field>
       <field name="enable_tweet" type="zope.schema.Bool" form:widget="z3c.form.browser.radio.RadioFieldWidget">
         <default>False</default>
-        <description>Do you want to offer a "Tweet this page" button.</description>
+        <description>Do you want to offer a "Tweet this page" button on each page?</description>
         <title>Enable "Tweet this?"</title>
       </field>
     </fieldset>

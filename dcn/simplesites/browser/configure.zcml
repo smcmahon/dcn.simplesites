@@ -13,11 +13,11 @@
         layer="dcn.simplesites.interfaces.IMyBrowserLayer"
         />
 
-    <!-- Render the document social links -->
+    <!-- Render the document actions -->
     <browser:viewlet
-        name="plone.belowcontenttitle.keywords"
-        manager="plone.app.layout.viewlets.interfaces.IBelowContent"
-        template="social.pt"
+        name="plone.abovecontenttitle.documentactions"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+        template="docactions.pt"
         permission="zope2.View"
         layer="dcn.simplesites.interfaces.IMyBrowserLayer"
         />

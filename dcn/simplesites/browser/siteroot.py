@@ -32,6 +32,9 @@ class SiteRootView(BrowserView):
     def enable_tweet(self):
         return getattr(self.nav_root, 'enable_tweet', False)
 
+    def enable_fblike(self):
+        return getattr(self.nav_root, 'enable_fblike', False)
+
     def public_contact(self):
         return getattr(self.nav_root, 'public_contact', False)
 
