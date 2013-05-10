@@ -1,0 +1,47 @@
+<div id="docactions"
+  tal:define="site context/@@ssiteroot">
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+    <ul>
+        <li class="action_fblike" tal:condition="site/enable_fblike">
+            <div class="fb-like"
+                data-href="http://likethis.com"
+                data-send="false"
+                data-layout="button_count"
+                data-width="450"
+                data-show-faces="false"
+                tal:attributes="data-href context/absolute_url"
+                ></div>
+        </li>
+        <li tal:condition="site/enable_tweet">
+            <a
+                href="https://twitter.com/share"
+                class="twitter-share-button"
+                data-url="http://testme.com"
+                tal:attributes="data-url context/absolute_url"
+                title="Tweet this"
+                >Tweet this</a>
+        </li>
+        <li class="action_print"><a
+              title="Print this"
+              href="javascript:this.print();">Print this</a></li>
+        <li class="action_rss" tal:condition="context/@@syndication-util/context_enabled">
+            <a  tal:attributes="href context/@@syndication-util/rss_url"
+                title="RSS feed"
+                >RSS feed</a>
+        </li>
+    </ul>
+
+
+
+
+</div>
