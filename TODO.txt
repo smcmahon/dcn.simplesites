@@ -1,1 +1,1 @@
-Make portal news respect nav root.
+Set a restrictive permission for simple site add

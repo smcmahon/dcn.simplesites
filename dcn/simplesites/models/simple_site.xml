@@ -12,11 +12,13 @@
       <title>Show news on homepage?</title>
     </field>
     <fieldset name="admin" label="Admin" description="Administrative Settings">
-      <field name="public_contact" type="zope.schema.TextLine">
+      <field name="public_contact" type="zope.schema.TextLine"
+        form:validator="dcn.simplesites.validators.isEmail">
         <description>Submissions to the contact-info form will be sent here.</description>
         <title>Public E-Mail Contact</title>
       </field>
-      <field name="admin_e_mail_contact" type="zope.schema.TextLine">
+      <field name="admin_e_mail_contact" type="zope.schema.TextLine"
+        form:validator="dcn.simplesites.validators.isEmail">
         <description>Contact information, including email, for a person responsible for this site. This information is not part of the site web pages, but will be used by the host administrator if there are questions about the site. Please Note: if this information is missing, or if mail to this address is not answered promptly, your site may be deleted without notice. </description>
         <title>Admin E-Mail Contact</title>
       </field>
@@ -42,7 +44,8 @@
         <description>Should this site be included in DCN's public listing of sites? (This is set to "no" when a site is first created. Change to "yes" when you're ready to go public.)</description>
         <title>Include in sites listing?</title>
       </field>
-      <field name="preferred_url" type="zope.schema.TextLine">
+      <field name="preferred_url" type="zope.schema.TextLine"
+        form:validator="dcn.simplesites.validators.isWebAddress">
         <description>If you wish to have your site in the public listing and you are using a domain/host name other than groups.dcn.org, enter your preferred URL here. The URL must be a valid web address, including "http://". </description>
         <required>False</required>
         <title>Preferred web address</title>
