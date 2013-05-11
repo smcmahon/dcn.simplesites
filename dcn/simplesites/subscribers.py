@@ -3,9 +3,6 @@ from Products.Five.component import LocalSiteHook, HOOK_NAME
 from Products.SiteAccess.AccessRule import AccessRule
 from ZPublisher.BeforeTraverse import registerBeforeTraverse
 
-from dcn.simplesites import available_skins
-
-
 def siteModified(context, event):
     """
       objectModified event on simple siteModified.
@@ -32,6 +29,6 @@ def applyTheme(context, event):
         Apply skin to request as we traverse
     """
 
-    skin = available_skins.get(context.page_structure)
+    skin = context.page_structure
     if skin is not None:
         context.changeSkin(skin, event.request)

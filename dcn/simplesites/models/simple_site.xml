@@ -25,14 +25,8 @@
       <field name="license" type="zope.schema.Choice">
         <description>Choose a Creative Commons license to allow republication of your content. If you don't wish to use a Creative Commons License, you may wish to add a copyright notice to your footer.</description>
         <title>License</title>
-        <values>
-          <element>None</element>
-          <element>Creative Commons Attribution</element>
-          <element>Creative Commons Attribution-ShareAlike</element>
-          <element>Creative Commons Attribution-NonCommercial</element>
-          <element>Creative Commons Attribution-NonCommercial-ShareAlike</element>
-        </values>
-        <default>Creative Commons Attribution</default>
+        <source>dcn.simplesites.license_vocab</source>
+        <default>CC BY</default>
       </field>
       <field name="credit_dcn" type="zope.schema.Bool" form:widget="z3c.form.browser.radio.RadioFieldWidget">
         <default>True</default>
@@ -71,13 +65,10 @@
     </fieldset>
     <fieldset name="style" label="Style &amp; Layout" description="Color and layout settings">
       <field name="page_structure" type="zope.schema.Choice">
-        <default>Flexible Layout</default>
+        <default>Sunburst Theme</default>
         <description>"Flexible Layout" is more modern and offers good Mobile displays. "Fixed Layout" is more compatible with older sites.</description>
         <title>Page Structure</title>
-        <values>
-          <element>Fixed Layout</element>
-          <element>Flexible Layout</element>
-        </values>
+        <source>dcn.simplesites.skins_vocab</source>
       </field>
       <field name="page_banner_image" type="plone.namedfile.field.NamedBlobImage">
         <description>An optional graphic that will be displayed at the top of each page in place of a text title. Make sure to use a web-standard file format (JPG, JPEG, PNG or GIF) for the image upload.</description>
