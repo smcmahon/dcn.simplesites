@@ -139,7 +139,7 @@ h1, h2, h3, h4, h5, body {
       </field>
       <field name="show_lastmod" type="zope.schema.Bool" form:widget="z3c.form.browser.radio.RadioFieldWidget">
         <default>True</default>
-        <description>When turned on, the date/time the page was last modified will show after the page headline. This will help visitors judge the page's currency.</description>
+        <description>When turned on, the date/time the page was last modified will show after the page headline for unauthenticated users. (It always shows for logged-in users.) This will help visitors judge the page's currency.</description>
         <title>Show last modified date?</title>
       </field>
     </fieldset>

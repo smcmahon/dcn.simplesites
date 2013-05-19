@@ -24,6 +24,13 @@
       available keys and default values.
       -->
  <stylesheet title=""
+    id="sscustom.css"
+    rel="stylesheet" rendering="import"
+    cacheable="True" compression="safe" cookable="True"
+    enabled="1" expression=""
+    />
+
+ <stylesheet title=""
     id="ssfixups.css"
     rel="stylesheet" rendering="inline"
     cacheable="False" compression="none" cookable="False"

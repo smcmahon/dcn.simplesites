@@ -59,7 +59,7 @@ class SimpleSite(dexterity.Container):
         if not self.show_breadcrumbs:
             hides.append('#portal-breadcrumbs')
         if not self.show_lastmod:
-            hides.append('.documentModified')
+            hides.append('body.userrole-anonymous span.documentModified')
         if not self.show_login:
             portal_membership = getToolByName(self, 'portal_membership')
             if portal_membership.isAnonymousUser():

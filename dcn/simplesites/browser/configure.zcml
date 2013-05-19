@@ -59,4 +59,13 @@
         layer="dcn.simplesites.interfaces.IMyBrowserLayer"
         />
 
+    <!-- Render the document byline -->
+    <browser:viewlet
+        name="plone.belowcontenttitle.documentbyline"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+        class=".document_byline.DocumentBylineViewlet"
+        permission="zope2.View"
+        layer="dcn.simplesites.interfaces.IMyBrowserLayer"
+        />
+
 </configure>

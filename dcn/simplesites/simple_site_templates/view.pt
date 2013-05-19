@@ -17,25 +17,49 @@
     <tal:newsitems  tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
                                 plone_view context/@@plone;
                                 getIcon nocall:plone_view/getIcon;"
-                    tal:repeat="obj view/published_news_items">
-    <dd tal:define="oddrow repeat/obj/odd;
-                    item_icon python:getIcon(obj);"
-         tal:attributes="class python:oddrow and 'portletItem even' or 'portletItem odd'">
+                    tal:repeat="item view/published_news_items">
+        <div class="tileItem visualIEFloatFix"
+             tal:define="item_object item/getObject;">
 
-        <a href=""
-           class="tile"
-           tal:attributes="href obj/getURL;
-                           title obj/Description">
-            <img tal:replace="structure item_icon/html_tag" />
-            <span tal:replace="obj/pretty_title_or_id">
-            Plone 2.1 announced!
-            </span>
-         </a>
-            <span class="portletItemDetails"
-                  tal:content="python:toLocalizedTime(obj.Date)">May 5</span>
+            <a href="#"
+               tal:condition="exists:item_object/image_thumb"
+               tal:attributes="href item/getURL">
+                <img src="" alt=""
+                     tal:replace="structure python: path('nocall:item_object/tag')(scale='thumb', css_class='tileImage')" />
+            </a>
 
-    </dd>
+            <h2 class="tileHeadline"
+                metal:define-macro="listitem">
+
+                <a href="#"
+                   class="summary url"
+                   tal:attributes="href item/getURL"
+                   tal:content="item/pretty_title_or_id">
+                    Item Title
+                </a>
+
+            </h2>
+
+            <p class="tileBody" tal:condition="item/Description">
+                <span class="description" tal:content="item/Description">
+                    description
+                </span>
+            </p>
+
+            <p class="tileFooter">
+                <a href=""
+                   tal:attributes="href item/getURL">
+                   <span class="hiddenStructure"><span tal:replace="item/pretty_title_or_id" /> - </span>
+                   <span i18n:translate="read_more">Read More&hellip;</span>
+                </a>
+            </p>
+
+            <div class="visualClear"><!-- --></div>
+
+        </div>
     </tal:newsitems>
+
+
 
         <a href=""
            tal:attributes="href view/all_news_link"
