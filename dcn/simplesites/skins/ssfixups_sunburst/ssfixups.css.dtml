@@ -1,0 +1,21 @@
+<dtml-if page_bg>
+body {
+background-color: &dtml-site_css_page_bg;;
+}
+
+#portal-globalnav .selected a, #portal-globalnav a:hover {
+background-color: &dtml-site_css_contrast_bg;;
+color: &dtml-site_css_contrast_fg;;
+}
+
+#portal-globalnav li a, #portal-globalnav {
+background-color: &dtml-site_css_alternate_bg;;
+}
+a:link, a:visited {
+color:  &dtml-site_css_alternate_fg;;
+}
+
+&dtml-site_hides;
+
+&dtml-site_css_custom;
+</dtml-if>

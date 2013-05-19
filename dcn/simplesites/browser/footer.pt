@@ -7,8 +7,5 @@
     <p tal:condition="not:site/in_simple_site">
         FOOTER
     </p>
-    <div tal:condition="license" tal:content="license">
-     License
-    </div>
 
 </div>

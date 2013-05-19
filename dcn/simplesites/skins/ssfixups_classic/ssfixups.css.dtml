@@ -1,0 +1,69 @@
+<dtml-if page_bg>
+body,
+#content,
+.portlet {
+background-color: &dtml-site_css_page_bg;;
+}
+h1, h2,
+#portal-breadcrumbs {
+border-bottom-color: &dtml-site_css_contrast_fg;;
+}
+
+#portal-globalnav li a:hover,
+#portal-globalnav li.selected a {
+background-color: &dtml-site_css_contrast_bg;;
+border-color: &dtml-site_css_contrast_fg; &dtml-site_css_contrast_fg; &dtml-site_css_contrast_bg;;
+color: &dtml-site_css_contrast_fg;;
+}
+#portal-globalnav li a {
+background-color: &dtml-site_css_alternate_bg;;
+border-color: &dtml-site_css_alternate_fg;;
+color: &dtml-site_css_alternate_fg;;
+}
+
+#portal-footer,
+#portal-personaltools {
+background-color: &dtml-site_css_contrast_bg;;
+border-bottom-color: &dtml-site_css_contrast_fg;;
+border-top-color: &dtml-site_css_contrast_fg;;
+color: &dtml-site_css_contrast_fg;;
+}
+#portal-personaltools a {
+color: &dtml-site_css_contrast_fg;;
+}
+
+.portletHeader, .managedPortlet .portletHeader {
+background-color: &dtml-site_css_alternate_bg;;
+border: 1px solid &dtml-site_css_alternate_fg;;
+}
+.portletHeader a, .managedPortlet .portletHeader a {
+color: &dtml-site_css_alternate_fg;;
+}
+.portletItem {
+border-left-color: &dtml-site_css_alternate_fg;;
+border-right-color: &dtml-site_css_alternate_fg;;
+}
+.even {
+background-color: &dtml-site_css_alternate_bg;;
+}
+.portletFooter {
+background-color: &dtml-site_css_alternate_bg;;
+border-color: &dtml-site_css_alternate_fg;;
+}
+
+.navTreeItem a, dd.portletItem .navTreeItem a {
+border-color: transparent;
+}
+.navTreeItem a:hover,
+dd.portletItem .navTreeItem a:hover,
+.navTreeCurrentItem {
+background-color: &dtml-site_css_contrast_bg;;
+border-color: &dtml-site_css_contrast_fg; !important;
+color: &dtml-site_css_contrast_fg; !important;
+}
+
+&dtml-site_hides;
+
+&dtml-site_css_custom;
+
+</dtml-if>

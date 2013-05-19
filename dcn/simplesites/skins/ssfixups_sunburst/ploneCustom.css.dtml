@@ -1,0 +1,9 @@
+#docactions ul {
+    list-style: none;
+    text-align: right;
+    height: 2em;
+    overflow: hidden;
+}
+#docactions ul li {
+    display: inline-block;
+}

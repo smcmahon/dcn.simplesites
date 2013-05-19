@@ -80,25 +80,30 @@
         <required>False</required>
         <title>Page Footer</title>
       </field>
-      <field name="page_background_color" type="zope.schema.TextLine">
+      <field name="page_bg" type="zope.schema.TextLine">
         <default>white</default>
         <description>Overall background color for the page. You may specify a CSS color name or hex value.</description>
         <title>Page Background Color</title>
       </field>
-      <field name="contrast_background_color" type="zope.schema.TextLine">
-        <default>LightGray</default>
-        <description>Background color for boxed elements like column headers.</description>
+      <field name="contrast_bg" type="zope.schema.TextLine">
+        <default>#006</default>
+        <description>Background color that has a strong contrast with page background.</description>
         <title>Contrast Background Color</title>
       </field>
-      <field name="border_color" type="zope.schema.TextLine">
-        <default>SteelBlue</default>
-        <description>Border color for boxed elements like column headers.</description>
-        <title>Border Color</title>
+      <field name="contrast_fg" type="zope.schema.TextLine">
+        <default>#fff</default>
+        <description>A color that will be legible for type on the contrast background.</description>
+        <title>Contrast Foreground Color</title>
       </field>
-      <field name="alternate_background_color" type="zope.schema.TextLine">
-        <default>WhiteSmoke</default>
-        <description>This color will be used as the background color in alternate table rows. A slightly different shade of the Page Background Color is a good choice.</description>
-        <title>Alternate Row Shading</title>
+      <field name="alternate_bg" type="zope.schema.TextLine">
+        <default>#ddd</default>
+        <description>Background color that has a weaker contrast with page background.</description>
+        <title>Alternate Background Color</title>
+      </field>
+      <field name="alternate_fg" type="zope.schema.TextLine">
+        <default>#006</default>
+        <description>A color that will be legible for type on the alternate background.</description>
+        <title>Alternate Foreground Color</title>
       </field>
       <field name="custom_css" type="zope.schema.Text">
         <default>/* Set body and headline text color */
@@ -129,7 +134,7 @@ h1, h2, h3, h4, h5, body {
       </field>
       <field name="show_login" type="zope.schema.Bool" form:widget="z3c.form.browser.radio.RadioFieldWidget">
         <default>True</default>
-        <description>When turned on, a "log in" link will appear in the shaded horizontal bar under the banner when the current viewer is not logged in. This is convenient when you're getting started, but may later invite confusion from viewers who may suppose your site has a members-only component. Note that you may always reach a log-in form by just adding "/edit" to the URL of your web site. </description>
+        <description>When turned on, a "log in" link will appear in the shaded horizontal bar  when the current viewer is not logged in. This is convenient when you're getting started, but may later invite confusion from viewers who may suppose your site has a members-only component. Note that you may always reach a log-in form by just adding "/edit" to the URL of your web site. </description>
         <title>Show log-in link?</title>
       </field>
       <field name="show_lastmod" type="zope.schema.Bool" form:widget="z3c.form.browser.radio.RadioFieldWidget">

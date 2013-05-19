@@ -31,7 +31,7 @@ class AnalyticsViewlet(BrowserView):
     def render(self):
         """render the webstats snippet"""
         if self.site.in_simple_site():
-            return self.site.analytics_code()
+            return self.site.analytics_code() or ''
         else:
             ptool = getToolByName(self.context, "portal_properties")
             snippet = safe_unicode(ptool.site_properties.webstats_js)

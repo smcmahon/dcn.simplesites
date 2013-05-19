@@ -4,6 +4,7 @@ from Products.Five.browser import BrowserView
 
 from plone.app.layout.navigation.root import getNavigationRootObject
 
+import dcn.simplesites
 from dcn.simplesites.simple_site import ISimpleSite
 
 
@@ -29,6 +30,12 @@ class SiteRootView(BrowserView):
     def in_simple_site(self):
         return self.is_simple_site
 
+    def site_title(self):
+        if self.is_simple_site:
+            return self.nav_root.Title
+        else:
+            return self.portal_state.portal_title()
+
     def enable_tweet(self):
         return getattr(self.nav_root, 'enable_tweet', False)
 
@@ -42,10 +49,7 @@ class SiteRootView(BrowserView):
         lic = getattr(self.nav_root, 'license', u'None')
         if lic == u'None':
             return u''
-        return lic
-
-    def credit_dcn(self):
-        return getattr(self.nav_root, 'credit_dcn', False)
+        return dcn.simplesites.license_display.get(lic, '')
 
     def analytics_code(self):
         return getattr(self.nav_root, 'analytics_code', u'')
@@ -57,5 +61,20 @@ class SiteRootView(BrowserView):
         else:
             return u''
 
+    def site_credit(self):
+        credit = getattr(self.nav_root, 'credit_dcn', None)
+        if credit:
+            return dcn.simplesites.site_credit
+        else:
+            return u''
+
     def dbOrgId(self):
         return getattr(self.nav_root, 'dbOrgId', 0)
+
+    def hideLogin(self):
+        # should we display the log-in prompt?
+
+        if not getattr(self.nav_root, 'show_login', True):
+            if getToolByName(self.context, "portal_membership").isAnonymousUser():
+                return True
+        return False

@@ -50,4 +50,13 @@
         layer="dcn.simplesites.interfaces.IMyBrowserLayer"
         />
 
+    <!-- The logo -->
+    <browser:viewlet
+        name="plone.logo"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class=".logo.LogoViewlet"
+        permission="zope2.View"
+        layer="dcn.simplesites.interfaces.IMyBrowserLayer"
+        />
+
 </configure>

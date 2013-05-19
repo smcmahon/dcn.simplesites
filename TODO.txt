@@ -1,1 +1,17 @@
-Set a restrictive permission for simple site add
+Colors
+
+Page background
+
+Background 1
+Color 1
+Background 2
+Color 2
+
+
+Sunburst
+1: selected tab
+2: alternate tab; column headers
+
+Classic
+1: selected tab; column headers
+2: alternate tab

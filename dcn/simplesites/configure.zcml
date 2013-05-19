@@ -6,6 +6,7 @@
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     xmlns:grok="http://namespaces.zope.org/grok"
     xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
     i18n_domain="dcn.simplesites">
 
   <!-- Include configuration for dependencies listed in setup.py -->
@@ -16,19 +17,22 @@
 
   <include package=".browser" />
 
+  <i18n:registerTranslations directory="locales" />
+
   <!-- Register a resource directory from which we can deploy static
    resource files. -->
   <browser:resourceDirectory
     name="dcn.simplesites"
     directory="resources" />
 
-  <i18n:registerTranslations directory="locales" />
+  <!-- We'll have some skin resources -->
+  <cmf:registerDirectory name="skins" directory="skins" recursive="True" />
 
   <!-- Register an extension profile to make the product installable
        in Plone -->
   <genericsetup:registerProfile
       name="default"
-      title="Subsites with simplified skinning and administration"
+      title="Simple Subsites"
       directory="profiles/default"
       description="Extension profile for Subsites with simplified skinning and administration"
       provides="Products.GenericSetup.interfaces.EXTENSION"

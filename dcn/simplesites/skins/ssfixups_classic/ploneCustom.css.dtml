@@ -1,0 +1,23 @@
+#visual-portal-wrapper {
+    margin: 0 auto;
+    max-width: 960px;
+}
+#portal-header h1 {
+    border-bottom: medium none;
+    font-size: 250%;
+    font-weight: bold;
+    margin: 0.5em 0;
+    width: 65%;
+}
+#portal-breadcrumbs {
+    margin-bottom: 1em;
+}
+#docactions ul {
+    list-style: none;
+    text-align: right;
+    height: 2em;
+    overflow: hidden;
+}
+#docactions ul li {
+    display: inline-block;
+}

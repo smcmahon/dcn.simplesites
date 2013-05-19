@@ -23,7 +23,49 @@ class ISimpleSite(form.Schema, IImageScaleTraversable):
 class SimpleSite(dexterity.Container):
     grok.implements(ISimpleSite)
 
-    # Add your class methods and properties here
+    # class methods and properties
+
+    @property
+    def site_css_page_bg(self):
+        return self.page_bg.encode('utf-8', 'ignore')
+
+    @property
+    def site_css_contrast_bg(self):
+        return self.contrast_bg.encode('utf-8', 'ignore')
+
+    @property
+    def site_css_contrast_fg(self):
+        return self.contrast_fg.encode('utf-8', 'ignore')
+
+    @property
+    def site_css_alternate_bg(self):
+        return self.alternate_bg.encode('utf-8', 'ignore')
+
+    @property
+    def site_css_alternate_fg(self):
+        return self.alternate_fg.encode('utf-8', 'ignore')
+
+    @property
+    def site_css_custom(self):
+        return self.custom_css.encode('utf-8', 'ignore')
+
+    # @property
+    def site_hides(self):
+        hides = []
+        if not self.show_search:
+            hides.append('#portal-searchbox')
+        if not self.show_nav:
+            hides.append('#portal-globalnav')
+        if not self.show_breadcrumbs:
+            hides.append('#portal-breadcrumbs')
+        if not self.show_lastmod:
+            hides.append('.documentModified')
+        if not self.show_login:
+            portal_membership = getToolByName(self, 'portal_membership')
+            if portal_membership.isAnonymousUser():
+                hides.append('#portal-personaltools')
+
+        return "%s {display:none}\n" % ', '.join(hides)
 
 
 class View(grok.View):

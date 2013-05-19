@@ -9,9 +9,15 @@
   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
 
     <ul>
+        <li class="action_rss" tal:condition="context/@@syndication-util/context_enabled">
+            <a  tal:attributes="href context/@@syndication-util/rss_url"
+                title="RSS feed"
+                >RSS feed</a>
+        </li>
         <li class="action_fblike" tal:condition="site/enable_fblike">
             <div class="fb-like"
                 data-href="http://likethis.com"
@@ -29,19 +35,8 @@
                 data-url="http://testme.com"
                 tal:attributes="data-url context/absolute_url"
                 title="Tweet this"
-                >Tweet this</a>
-        </li>
-        <li class="action_print"><a
-              title="Print this"
-              href="javascript:this.print();">Print this</a></li>
-        <li class="action_rss" tal:condition="context/@@syndication-util/context_enabled">
-            <a  tal:attributes="href context/@@syndication-util/rss_url"
-                title="RSS feed"
-                >RSS feed</a>
+                ></a>
         </li>
     </ul>
-
-
-
 
 </div>
