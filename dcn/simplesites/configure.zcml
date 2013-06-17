@@ -47,7 +47,7 @@
   <subscriber
     for="dcn.simplesites.simple_site.ISimpleSite
          zope.lifecycleevent.IObjectAddedEvent"
-    handler="dcn.simplesites.subscribers.siteModified"
+    handler="dcn.simplesites.subscribers.siteAdded"
     />
 
 </configure>

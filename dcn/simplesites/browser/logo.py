@@ -1,13 +1,10 @@
+import cgi
+
 from Acquisition import aq_inner
-from zope.component import getMultiAdapter
-
 from plone.app.layout.navigation.root import getNavigationRootObject
-
-from dcn.simplesites.simple_site import ISimpleSite
-
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-
 from plone.app.layout.viewlets.common import ViewletBase
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from zope.component import getMultiAdapter
 
 
 class LogoViewlet(ViewletBase):
@@ -31,16 +28,26 @@ class LogoViewlet(ViewletBase):
         logoTitle = portal_state.navigation_root_title()
         self.navigation_root_title = logoTitle
 
-        if ISimpleSite.providedBy(nav_root):
-            logo = nav_root.page_banner_image
-            if logo is None:
-                self.logo_tag = """%s""" % logoTitle
-            else:
-                self.logo_tag = """<img
-                src="%s/@@images/page_banner_image"
-                alt="%s"
-                title="%s"
-                />""" % (nav_root.absolute_url(), logoTitle, logoTitle)
+        logo = nav_root.page_banner_image
+        if logo is None:
+            self.logo_tag = """%s""" % cgi.escape(logoTitle)
         else:
-            logoName = 'logo.jpg'
-            self.logo_tag = portal.restrictedTraverse(logoName).tag(title=logoTitle, alt=logoTitle)
+            self.logo_tag = """<img
+            src="%s/@@images/page_banner_image"
+            alt="%s"
+            title="%s"
+            />""" % (nav_root.absolute_url(), logoTitle, logoTitle)
+
+        # if ISimpleSite.providedBy(nav_root):
+        #     logo = nav_root.page_banner_image
+        #     if logo is None:
+        #         self.logo_tag = """%s""" % logoTitle
+        #     else:
+        #         self.logo_tag = """<img
+        #         src="%s/@@images/page_banner_image"
+        #         alt="%s"
+        #         title="%s"
+        #         />""" % (nav_root.absolute_url(), logoTitle, logoTitle)
+        # else:
+        #     logoName = 'logo.jpg'
+        #     self.logo_tag = portal.restrictedTraverse(logoName).tag(title=logoTitle, alt=logoTitle)

@@ -1,16 +1,15 @@
 from Acquisition import aq_base
 from Products.Five.component import LocalSiteHook, HOOK_NAME
 from Products.SiteAccess.AccessRule import AccessRule
-from zope.interface import directlyProvides, directlyProvidedBy
+from zope.interface import directlyProvides, directlyProvidedBy, alsoProvides
 from ZPublisher.BeforeTraverse import registerBeforeTraverse
 
 from plone.theme.layer import default_layers
-from plone.theme.interfaces import IDefaultPloneLayer
 
 from interfaces import IMyBrowserLayer
 
 
-def siteModified(context, event):
+def siteAdded(context, event):
     """
       objectModified event on simple siteModified.
       this code from collective.editsiteswitcher.
@@ -38,7 +37,7 @@ def applyTheme(context, event):
         Apply IMyBrowserLayer and skin to request as we traverse
     """
 
-    # Add our browserlayer to the request.
+    # #Add our browserlayer to the request.
     # Code from plone.theme mark_layer; generalized for
     # non-skin layer
     layer_ifaces = []

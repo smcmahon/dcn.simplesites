@@ -1,11 +1,13 @@
 <div id="portal-colophon"
     tal:define="site context/@@ssiteroot;
-      site_credit site/site_credit">
-<div class="colophonWrapper">
-    <div tal:content="structure site/license" class="sitelicense" />
+                site_credit site/site_credit">
 
-    <div tal:condition="site_credit" tal:content="structure site_credit" class="sitecredit">
-        Credit DCN
+    <div class="colophonWrapper">
+        <div tal:content="structure site/license" class="sitelicense" />
+
+        <div tal:condition="site_credit" tal:content="structure site_credit" class="sitecredit">
+            Credit DCN
+        </div>
     </div>
-</div>
+
 </div>
